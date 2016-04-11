@@ -4,14 +4,14 @@
 		<meta charset="UTF-8">
 		<title>memory box</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<script src="js/jquery.min.js"></script>
-		<script src="js/skel.min.js"></script>
-		<script src="js/skel-layers.min.js"></script>
-		<script src="js/init.js"></script>
+		<script src="jquery.min.js"></script>
+		<script src="skel.min.js"></script>
+		<script src="jskel-layers.min.js"></script>
+		<script src="init.js"></script>
 		<noscript>
-			<link rel="stylesheet" href="css/skel.css" />
-			<link rel="stylesheet" href="css/style.css" />
-			<link rel="stylesheet" href="css/style-xlarge.css" />
+			<link rel="stylesheet" href="skel.css" />
+			<link rel="stylesheet" href="style.css" />
+			<link rel="stylesheet" href="style-xlarge.css" />
 		</noscript>
 <style type="text/css">
 	ul, li {
@@ -20,14 +20,14 @@
 		list-style: none;
 	}
 	#abgne-block-20110317 {
-		width: 890px;	/* 圖片的寬 */
-		height: 450px;	/* 圖片的高 + 30 */
+		width: 890px;
+		height: 450px;
 		border: 0px solid #ddd;
 		margin: 0px auto;
 	}
 	.abgne-player {
-		width: 890px;	/* 圖片的寬 */
-		height: 420px;	/* 圖片的高 */
+		width: 890px;
+		height: 420px;
 		position: relative;
 		overflow: hidden;
 	}
@@ -38,7 +38,7 @@
 	}
 	.abgne-player ul.abgne-list li {
 		float: left;
-		width: 890px;	/* 圖片的寬 */
+		width: 890px;
 		height: 100%;
 	}
 	.abgne-player ul.abgne-list img{
@@ -81,8 +81,7 @@
 </style>
 <script type="text/javascript">
 	$(function(){
-		// 先取得必要的元素並用 jQuery 包裝
-		// 再來取得 $block 的高度及設定動畫時間
+
 		var $block = $('#abgne-block-20110317'),
 			$slides = $block.find('ul.abgne-list'),
 			_width = $block.width(),
@@ -90,12 +89,12 @@
 			$control = $block.find('.abgne-control'),
 			_animateSpeed = 600;
 		
-		// 設定 $slides 的寬(為了不讓 li 往下擠)
+
 		$slides.css('width', ($li.length + 1) * _width);
-		// 產生 li 選項
+
 		var _str = '';
 		for(var i=0, j=$li.length;i<j;i++){
-			// 每一個 li 都有自己的 className = playerControl_號碼
+
 			switch(i){
 				case 0:
 				_str += '<li class="abgne-player-control_' + (i+1)+ '">' + "柯竣嚴" + '</li>';
@@ -124,15 +123,15 @@
 
 		}
 
-		// 產生 ul 並把 li 選項加到其中
+
 		var $number = $('<ul class="numbers"></ul>').html(_str).appendTo($control), 
 			$numberLi = $number.find('li');
 
-		// 並幫 .numbers li 加上 click 事件
+
 		$numberLi.click(function(){
 			var $this = $(this);
 			$this.addClass('current').siblings('.current').removeClass('current');
-			// 移動位置到相對應的號碼
+
 			$slides.stop().animate({
 				left: _width * $this.index() * -1
 			}, _animateSpeed);
@@ -140,7 +139,7 @@
 			return false;
 		}).eq(0).click();
 		
-		// 幫 .arrows li 加上 click 事件
+
 		$control.find('ul.arrows li').click(function(){
 			var _index = $numberLi.filter('.current').index();
 			$numberLi.eq((this.className.indexOf('next')>-1?_index+1:_index-1+$numberLi.length)%$numberLi.length).click();
@@ -148,8 +147,6 @@
 			return false;
 		});
 		
-		// 當滑鼠移到 $control li 上時, 加上 .hover 效果
-		// 反之則移除
 		$control.find('li').hover(function(){
 			$(this).addClass('hover');
 		}, function(){
@@ -193,13 +190,13 @@
 					<div id="abgne-block-20110317">
 						<div class="abgne-player">
 							<ul class="abgne-list">
- 								<li><a target="_blank" href="https://www.facebook.com/profile.php?id=100000715768722&fref=pb_other"><img src="images/img01.png"></a></li>
-								<li><a target="_blank" href="https://www.facebook.com/victorlo1997?fref=pb_other"><img src="images/img02.png"></a></li>
-								<li><a target="_blank" href="https://www.facebook.com/profile.php?id=100004006674836&fref=pb_other"><img src="images/img03.png"></a></li>
-								<li><a target="_blank" href="https://www.facebook.com/profile.php?id=100000914004586&fref=pb_other"><img src="images/img04.jpg"></a></li>
-								<li><a target="_blank" href="https://www.facebook.com/profile.php?id=100002935394808&fref=pb_other"><img src="images/img05.jpg"></a></li>
-								<li><a target="_blank" href="https://www.facebook.com/kang.yen.7?fref=pb_other"><img src="images/img06.jpg"></a></li>
-								<li><a target="_blank" href="https://www.facebook.com/profile.php?id=618267945&fref=pb_other"><img src="images/img07.jpg"></a></li>
+ 								<li><a target="_blank" href="https://www.facebook.com/profile.php?id=100000715768722&fref=pb_other"><img src="img01.png"></a></li>
+								<li><a target="_blank" href="https://www.facebook.com/victorlo1997?fref=pb_other"><img src="img02.png"></a></li>
+								<li><a target="_blank" href="https://www.facebook.com/profile.php?id=100004006674836&fref=pb_other"><img src="img03.png"></a></li>
+								<li><a target="_blank" href="https://www.facebook.com/profile.php?id=100000914004586&fref=pb_other"><img src="img04.jpg"></a></li>
+								<li><a target="_blank" href="https://www.facebook.com/profile.php?id=100002935394808&fref=pb_other"><img src="img05.jpg"></a></li>
+								<li><a target="_blank" href="https://www.facebook.com/kang.yen.7?fref=pb_other"><img src="img06.jpg"></a></li>
+								<li><a target="_blank" href="https://www.facebook.com/profile.php?id=618267945&fref=pb_other"><img src="img07.jpg"></a></li>
 						   	</ul>
 						</div>
 						<div class="abgne-control">
