@@ -29,15 +29,20 @@ background-size:100% 100%;">
   float:left;
 
 }
-fieldset{
-	border:none;
-	padding:0;
-	margin:0;
-}
-label{
-	display:inline-block;
-	padding-bottom:10px;
-	width:90px;
+#dialog{
+		position: fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 99999;
+	opacity:0;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	pointer-events: none;
 }
 
   </style>
@@ -116,6 +121,7 @@ label{
     <div data-role="main" class="ui-content">
      <div id="show" >點擊獲得資訊
      <img id="mark1" src="http://www.easyicon.net/api/resizeApi.php?id=1183485&amp;size=24">
+     
       <div id="dialog" title="test dialog">
       	<img id="map" sre="http://www.thevffvthe.com/wp-content/uploads/2013/02/140507_%E8%88%9E%E8%94%AC%E5%B0%8F%E5%9C%B0%E5%9C%96-03.jpg">
       	<p>information</p>
