@@ -1,0 +1,66 @@
+<html>
+<head>
+<script>
+
+$(document).ready(function(){
+	// with minimal configuration and default setting
+	//	$('.jR3DCarouselGallery').jR3DCarousel({ slides: slides });
+	// Or with options
+		var slides = [];
+    for ( var i = 0; i < 7; i++) {
+				slides.push({src: 'https://unsplash.it/'+(1366+i)+'/'+(768+i)})
+		}
+ 		$('.jR3DCarouselGallery').jR3DCarousel({
+		 		width: 400, 				// largest allowed width
+			  height: 222, 				// largest allowed height
+			  slideLayout : 'fill',    // "contain" (fit according to aspect ratio), "fill" (stretches object to fill) and "cover" (overflows box but maintains ratio)
+        animation: 'slide3D', // slide | slide3D | scroll | scroll3D | fade
+			  animationCurve: 'ease',
+			  animationDuration: 2000,
+			  animationInterval: 1000,
+			  autoplay: true,
+			  onSlideShow: shown,		 // callback when Slide show event occurs
+			  navigation: 'circles', // circles | squares */
+			  slides: slides 			// array of images source or slides from template
+		});
+        
+    function shown(slide){
+			console.log("Slide shown: ", slide.find('img').attr('src'));
+		}
+  });
+</script>
+<style>
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 9px;
+  overflow-x: hidden;
+  text-align: center;
+}
+
+.jR3DCarouselGallery, .jR3DCarouselGallery1 {
+  margin: 0 auto;
+}
+
+a img {
+  position: absolute;
+  bottom: 0;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>jR3DCarousel - jQuery 3D Responsive Carousel</h1>
+  <br/>
+  <div class="jR3DCarouselGallery"></div>
+	<!-- <h1>jR3DCarousel Gallery - with slides in template </h1>
+	<div class="jR3DCarouselGallery1">
+			<div class="slide"><img src="http://lorempixel.com//800/351" /><div>This is custom Text</div></div>
+			<div class="slide"><img src="http://lorempixel.com//800/352" /><div>This is custom Text</div></div>
+			<div class="slide"><img src="http://lorempixel.com//800/353" /><div>This is custom Text</div></div>
+			<div class="slide"><img src="http://lorempixel.com//800/354" /><div>This is custom Text</div></div>
+			<div class="slide"><img src="http://lorempixel.com//800/355" /><div>This is custom Text</div></div>
+		</div> -->
+		<br/>
+</div>
+</body>
+</html>
