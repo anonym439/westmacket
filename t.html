@@ -1,66 +1,100 @@
+<!DOCTYPE html>
 <html>
+
 <head>
-<script>
-
-$(document).ready(function(){
-	// with minimal configuration and default setting
-	//	$('.jR3DCarouselGallery').jR3DCarousel({ slides: slides });
-	// Or with options
-		var slides = [];
-    for ( var i = 0; i < 7; i++) {
-				slides.push({src: 'https://unsplash.it/'+(1366+i)+'/'+(768+i)})
-		}
- 		$('.jR3DCarouselGallery').jR3DCarousel({
-		 		width: 400, 				// largest allowed width
-			  height: 222, 				// largest allowed height
-			  slideLayout : 'fill',    // "contain" (fit according to aspect ratio), "fill" (stretches object to fill) and "cover" (overflows box but maintains ratio)
-        animation: 'slide3D', // slide | slide3D | scroll | scroll3D | fade
-			  animationCurve: 'ease',
-			  animationDuration: 2000,
-			  animationInterval: 1000,
-			  autoplay: true,
-			  onSlideShow: shown,		 // callback when Slide show event occurs
-			  navigation: 'circles', // circles | squares */
-			  slides: slides 			// array of images source or slides from template
-		});
-        
-    function shown(slide){
-			console.log("Slide shown: ", slide.find('img').attr('src'));
-		}
-  });
-</script>
-<style>
-body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 9px;
-  overflow-x: hidden;
-  text-align: center;
+  <meta charset="utf-8">
+  <title>EZoApp</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval' data: blob: filesystem:">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=yes">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.2/normalize.min.css">
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <link rel="stylesheet" href="https://apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+  <!-- Export CSS  -->
+  <style>
+    #pic {
+    max-width: 100%;
+    height: auto;
+    }
+#map{
+  max-width:70%;
+  float:left;
+  height: auto;
 }
+#mark1{
+  float:left;
 
-.jR3DCarouselGallery, .jR3DCarouselGallery1 {
-  margin: 0 auto;
 }
+fieldset{
+	border:none;
+	padding:0;
+	margin:0;
+}
+label{
+	display:inline-block;
+	padding-bottom:10px;
+	width:90px;
+}
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <!-- Uncomment the following to include cordova in your app project -->
+  <!-- <script src="//ezoui.com/platforms/android_or_ios/cordova.js"></script> -->
+  <script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <script src="http://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+  <!-- Export JS  -->
+  <script>
+    $(document).on("pagecreate", "#pageone", function () {
+      $("picture").on("swipe",
+        function () {
+          $("#pic2").attr("srcset",
+            "http://i.telegraph.co.uk/multimedia/archive/03235/potd-husky_3235255k.jpg");
+        });
+      $("picture").on("click",
+        function () {
+          $("#headpic").hide();
+          $("#show").show();
+        });
+    });
 
-a img {
-  position: absolute;
-  bottom: 0;
-}
-</style>
+
+    $(function () {
+      $("#dialog").dialog({
+        autoOpen: false,
+        show: {
+          effect: "blind",
+          duration: 1000
+        },
+        hide: {
+          effect: "blind",
+          duration: 1000
+        }
+
+      });
+
+      $("#mark1").click(function () {
+        $("#dialog").dialog("open");
+
+      });
+
+    });
+  </script>
 </head>
+
 <body>
-<div class="container">
-  <h1>jR3DCarousel - jQuery 3D Responsive Carousel</h1>
-  <br/>
-  <div class="jR3DCarouselGallery"></div>
-	 <h1>jR3DCarousel Gallery - with slides in template </h1>
-	 <div class="jR3DCarouselGallery1">
-			<div class="slide"><img src="http://lorempixel.com//800/351" /><div>This is custom Text</div></div>
-			<div class="slide"><img src="http://lorempixel.com//800/352" /><div>This is custom Text</div></div>
-			<div class="slide"><img src="http://lorempixel.com//800/353" /><div>This is custom Text</div></div>
-			<div class="slide"><img src="http://lorempixel.com//800/354" /><div>This is custom Text</div></div>
-			<div class="slide"><img src="http://lorempixel.com//800/355" /><div>This is custom Text</div></div>
-		</div> 
-		<br/>
-</div>
+  <!-- Page: pageone  -->
+  <div data-role="page" id="pageone">
+    <div id="headpic">
+    </div>
+    <div data-role="main" class="ui-content">
+      <picture>
+       <source id="pic2" srcset="http://ichef-1.bbci.co.uk/news/976/media/images/83351000/jpg/_83351965_explorer273lincolnshirewoldssouthpicturebynicholassilkstone.jpg">
+          <img id="pic" sre="http://ichef-1.bbci.co.uk/news/976/media/images/83351000/jpg/_83351965_explorer273lincolnshirewoldssouthpicturebynicholassilkstone.jpg">
+      </picture>
+    </div>
+  </div>
 </body>
+
 </html>
+
